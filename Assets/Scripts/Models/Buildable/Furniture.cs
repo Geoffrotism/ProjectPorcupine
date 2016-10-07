@@ -96,7 +96,7 @@ public class Furniture : IXmlSerializable, ISelectable, IPrototypable, IContextA
         DragType = "single";
         LinksToNeighbour = string.Empty;
         components = new HashSet<BuildableComponent>();
-        health = new Health(-1f);
+        health = new Health(-1f,true,false,false,false);
     }
 
     /// <summary>
@@ -697,10 +697,9 @@ public class Furniture : IXmlSerializable, ISelectable, IPrototypable, IContextA
                     reader.Read();
                     Height = reader.ReadContentAsInt();
                     break;
-                case "Health":
+               case "Health":
                     reader.Read();
-                    health.InitialHealth(reader.ReadContentAsFloat());
-                    health.MaxHealth = reader.ReadContentAsFloat();
+                    health = new Health(reader.ReadContentAsFloat());
                     break;
                 case "LinksToNeighbours":
                     reader.Read();

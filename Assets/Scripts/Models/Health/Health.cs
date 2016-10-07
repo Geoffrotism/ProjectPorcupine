@@ -22,12 +22,13 @@ public class Health
         currentHealth = maxHealth;
     }
 
-    public Health(float maxHealth, bool isInvincible , bool isRevivable , bool canOveheal )
+    public Health(float maxHealth, bool isInvincible, bool isRevivable, bool isHealable, bool canOveheal)
     {
         MaxHealth = maxHealth;
         currentHealth = maxHealth;
         IsInvincible = isInvincible;
         IsRevivable = isRevivable;
+        IsHealable = isHealable;
         CanOverheal = canOveheal;
     }
 
@@ -37,6 +38,7 @@ public class Health
         MaxHealth = other.MaxHealth;
         IsInvincible = other.IsInvincible;
         IsRevivable = other.IsRevivable;
+        IsHealable = other.IsHealable;
         CanOverheal = other.CanOverheal;
     }
 
@@ -84,6 +86,8 @@ public class Health
     public bool IsInvincible { get; set; }
 
     public bool IsRevivable { get; set; }
+
+    public bool IsHealable { get; set; }
 
     public bool CanOverheal { get; set; }
 
