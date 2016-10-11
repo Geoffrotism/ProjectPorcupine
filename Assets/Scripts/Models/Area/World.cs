@@ -41,6 +41,8 @@ public class World : IXmlSerializable
 
     // A three-dimensional array to hold our tile data.
     private Tile[,,] tiles;
+    
+    private Dictionary<string, Race> races;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="World"/> class.
@@ -720,6 +722,22 @@ public class World : IXmlSerializable
                     float.Parse(reader.GetAttribute("Balance")));
             }
             while (reader.ReadToNextSibling("Currency"));
+        }
+    }
+
+    private void ReadXml_Races(XmlReader reader)
+    {
+        if (reader.ReadToDescendant("Race"))
+        {
+            do
+            {
+                //races.Add(
+                //     reader.GetAttribute("Name"),
+                //     race);
+            }
+            while (reader.ReadToNextSibling("Race"));
+
+            Debug.ULogChannel("World", "Initialized " + races.Count + " Race.");
         }
     }
 

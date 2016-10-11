@@ -20,8 +20,8 @@ using System.IO;
 /// </summary>
 public class BodyPartManager : IXmlSerializable {
 
-    ArrayList races = new ArrayList(10);
-
+    string raceName;
+    ArrayList parts;
     /// <summary>
     /// Used to create one of every Race.
     /// </summary>
@@ -31,12 +31,11 @@ public class BodyPartManager : IXmlSerializable {
         // Setup XML Reader
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "Data");
         filePath = System.IO.Path.Combine(filePath, "Races.xml");
-        string furnitureXmlText = System.IO.File.ReadAllText(filePath);
+        string XmlText = System.IO.File.ReadAllText(filePath);
 
-        XmlTextReader reader = new XmlTextReader(new StringReader(furnitureXmlText));
+        XmlTextReader reader = new XmlTextReader(new StringReader(XmlText));
 
         readXmlRaces(reader);
-        ReadXml(reader);
         reader.Close();
     }
 
@@ -50,6 +49,7 @@ public class BodyPartManager : IXmlSerializable {
 
     public void ReadXml(XmlReader reader)
     {
+        parts = new ArrayList(10);
        while (reader.Read()) {
 
                     string name = reader.GetAttribute("Name");
@@ -65,6 +65,7 @@ public class BodyPartManager : IXmlSerializable {
                         // TODO: Some sort of code for making the name "Right Hand, Left Hand"?
                         // TODO: Localization
                         BodyPart part = new BodyPart(name, health, gear, hold);
+                        parts.Add(part);
                     }
                 }
     }
@@ -85,8 +86,10 @@ public class BodyPartManager : IXmlSerializable {
         {
             do
             {
-                races.Add(reader.ReadContentAsString());
-                Debug.ULogErrorChannel("BodyPartManager", reader.ReadContentAsString().ToString());             
+                raceName = reader.ReadContentAsString();
+                Debug.ULogErrorChannel("BodyPartManager", reader.ReadContentAsString());  
+                ReadXml(reader);           
+                Race race = new Race(raceName, parts);
             }
             while (reader.ReadToNextSibling("Race"));         
         }        

@@ -2,12 +2,11 @@
 <!-- canHoldObjects defaults to False-->
 <!-- canHoldObjects defaults to True-->
 <Races>
-	<Race name="Human">
-		<BodyParts>
-			<Hand number="2" health="10" canHoldObjects="True" />
-			<Feet number="2" health="10" />
-			<Chest number="1" health="20" />
-
-		</BodyParts>
+	<Race Type="Human">
+		<Hand Type="Hand" position="Right" health="10" canHoldObjects="True" />
+		<Hand Type="Hand" position="Left" health="10" canHoldObjects="True" />
+		<Foot Type="Foot" position="Right" health="10" />
+		<Foot Type="Foot" position="Left" health="10" />
+		<Chest Type="Chest" number="1" health="20" />	
 	</Race>    
 </Races>

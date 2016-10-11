@@ -39,6 +39,7 @@ public class PrototypeManager
         Headline = new PrototypeMap<Headline>("Headlines", "Headline");
         Overlay = new PrototypeMap<OverlayDescriptor>("Overlays", "Overlay");
         Ship = new PrototypeMap<Ship>("Ships", "Ship");
+        Race = new PrototypeMap<Race>("Races", "Race");
     }
 
     /// <summary>
@@ -151,4 +152,10 @@ public class PrototypeManager
     /// </summary>
     /// <value>The ship prototype map.</value>
     public static PrototypeMap<Ship> Ship { get; private set; }
+
+     /// <summary>
+    /// Gets the race prototype map.
+    /// </summary>
+    /// <value>The race prototype map.</value>
+    public static PrototypeMap<Race> Race { get; private set; }
 }

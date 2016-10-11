@@ -30,7 +30,7 @@ public class BodyPart {
 
     #endregion
 
-    public BodyPart(string name, float maxHealth, bool canHaveGear, bool canHoldObjects)
+    public BodyPart(string name, float maxHealth, bool canHaveGear = true, bool canHoldObjects = false)
     {
         // Should we check if the name is a correct body part?
         this.name = name;

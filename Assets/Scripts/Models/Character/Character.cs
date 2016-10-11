@@ -68,6 +68,9 @@ public class Character : IXmlSerializable, ISelectable, IContextActionProvider
     /// Used for health system.
     private Health health;
 
+    /// The Race of this character.
+    private Race race;
+
     /// Tile where job should be carried out, if different from MyJob.tile.
     private Tile jobTile;
 
@@ -197,6 +200,17 @@ public class Character : IXmlSerializable, ISelectable, IContextActionProvider
             }
 
             return null;
+        }
+    }
+
+    /// <summary>
+    /// Gets the Race of this character.
+    /// </summary>
+    public Race getRace
+    {
+    get
+        {
+            return race;
         }
     }
 
@@ -558,6 +572,7 @@ public class Character : IXmlSerializable, ISelectable, IContextActionProvider
         LoadNeeds();
         LoadStats();
         UseStats();
+        
     }
 
     private void LoadNeeds()
