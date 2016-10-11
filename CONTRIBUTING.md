@@ -48,21 +48,25 @@ Pull in the latest upstream changes: `git pull upstream master`
 Find out what files have a conflict: `git status`
 
 Edit the conflicting file(s) and look for a block that looks like this:
-    `<<<<<<< HEAD`
-    `my awesome change`
-    `=======`
-    `some other person's less awesome change`
-    `>>>>>>> some-branch`
+```
+<<<<<<< HEAD
+my awesome change
+=======
+some other person's less awesome change
+>>>>>>> some-branch
+```
 
 Replace all five (or more) lines with the correct version (yours, theirs, or
 a combination of the two).  ONLY the correct content should remain (none of
-that "<<<<< HEAD" stuff.)
+that `<<<<< HEAD` stuff.)
 
 Then re-commit and re-push the file.
 
-  `git add the-changed-file.cs`
-  `git commit -m "Resolved conflict between this and PR #123"`
-  `git push origin my-feature-branch-name`
+```
+git add the-changed-file.cs
+git commit -m "Resolved conflict between this and PR #123"
+git push origin my-feature-branch-name
+```
 
 The pull request should automatically update to reflect your changes.
 
@@ -170,13 +174,13 @@ We have standardized the Types of Furniture and Inventory to match `type_materia
 [Best Practices for Contributing]: #best-practices-for-contributing
 * Before you start coding, open an issue so that the community can discuss your change to ensure it is in line with the goals of the project and not being worked on by someone else. This allows for discussion and fine tuning of your feature and results in a more succent and focused additions.
     * If you are fixing a small glitch or bug, you may make a PR without opening an issue.
-    * If you are adding a large feature, create an issue prefixed with "Discussion:" and be sure to take community feedback and get general approval before making your change and submitting a PR.
+    * If you are adding a large feature, create an issue prefixed with "[Discussion]" and be sure to take community feedback and get general approval before making your change and submitting a PR.
 
 * Pull Requests represent final code. Please ensure they are:
      * Well tested by the author. It is the author's job to ensure their code works as expected.
-     * Be free of unnecessary log calls. Logging is great for debugging, but when a PR is made, log calls should only be present when there is an actual error or to warn of an unimplemented feature.
+     * Be free of unnecessary log calls. Logging is great for debugging, but when a PR is made, log calls should only be present when there is an actual error or to warn of an unimplemented feature. [Please use UberLogger as shown here](https://github.com/TeamPorcupine/ProjectPorcupine/wiki/UberLogger) instead of Unity's `Debug.Log()`.
 
-   If your code is untested, log heavy, or incomplete, prefix your PR with "WIP", so others know it is still being tested and shouldn't be considered for merging yet.
+   If your code is untested, log heavy, or incomplete, prefix your PR with "[WIP]", so others know it is still being tested and shouldn't be considered for merging yet.
 
 * Small changes are preferable over large ones. The larger a change is the more likely it is to conflict with the project and thus be denied. If your addition is large, be sure to extensively discuss it in an "issue" before you submit a PR, or even start coding.
 

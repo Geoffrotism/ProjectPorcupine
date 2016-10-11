@@ -115,7 +115,7 @@ namespace Animation
                 }
             }
 
-            currentAnimation.Update(deltaTime);
+            currentAnimation.Update(deltaTime * character.MovementSpeed);
 
             if (prevFrameIndex != currentAnimation.CurrentFrame)
             {
@@ -157,7 +157,7 @@ namespace Animation
         {
             if (renderer != null)
             {
-                renderer.sprite = SpriteManager.current.GetSprite("Character", spriteName);                
+                renderer.sprite = SpriteManager.GetSprite("Character", spriteName);                
             }
         }
     }
