@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- canHoldObjects defaults to False-->
+<!-- canHoldObjects defaults to True-->
+<Races>
+	<Race name="Human">
+		<BodyParts>
+			<Hand number="2" health="10" canHoldObjects="True" />
+			<Feet number="2" health="10" />
+			<Chest number="1" health="20" />
+
+		</BodyParts>
+	</Race>    
+</Races>
